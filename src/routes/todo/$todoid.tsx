@@ -18,7 +18,7 @@ export const Route = createFileRoute('/todo/$todoid')({
           page: Number(search?.page ?? 1),
       }
     },
-    errorComponent: ({error}) => <div>404</div>
+    errorComponent: () => <div>404</div>
 })
 
 function TodoItem() {
