@@ -1,6 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import { SomeComponent } from "../SomeComponents.tsx";
 import { Modal } from "@/shared/ui/Modal";
+import { createLazyFileRoute } from "@tanstack/react-router";
+
+import { SomeComponent } from "../SomeComponents.tsx";
 
 export const Route = createLazyFileRoute("/about")({
   component: About,

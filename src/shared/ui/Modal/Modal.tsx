@@ -1,13 +1,14 @@
-import { useEffect, useRef } from "react";
-import styles from "./Modal.module.scss";
-import { Portal } from "../Portal";
-import cn from "classnames";
 import { useModal } from "@/app/providers/modal-provider";
+import cn from "classnames";
+import { useEffect, useRef } from "react";
+
+import { Portal } from "../Portal";
+import styles from "./Modal.module.scss";
 
 const modalElement = document.getElementById("modal") as HTMLElement;
 
 export const Modal = () => {
-  const { modals, closeModal } = useModal();
+  const { closeModal, modals } = useModal();
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 

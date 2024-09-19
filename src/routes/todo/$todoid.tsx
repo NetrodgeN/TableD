@@ -12,13 +12,13 @@ async function getTodo(id:string): Promise<{title: string}>{
 
 export const Route = createFileRoute('/todo/$todoid')({
   component: TodoItem,
+    errorComponent: () => <div>404</div>,
     loader: ({params}) => getTodo(params.todoid),
     validateSearch: (search: Record<string, unknown>) : PageParams=> {
       return {
           page: Number(search?.page ?? 1),
       }
-    },
-    errorComponent: () => <div>404</div>
+    }
 })
 
 function TodoItem() {

@@ -1,14 +1,18 @@
-import { ReactNode, useContext, useState } from "react";
 import {
   ModalContext,
   ModalItem,
 } from "@/shared/lib/context/modal-context.tsx";
+import {
+  ReactNode,
+  useContext,
+  useState
+} from "react";
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [modals, setModals] = useState<ModalItem[]>([]);
 
   const openModal = (content: ReactNode) => {
-    setModals((prevModals) => [...prevModals, { id: Date.now(), content }]);
+    setModals((prevModals) => [...prevModals, { content, id: Date.now() }]);
   };
 
   const closeModal = (closeAll: boolean = false) => {
@@ -20,7 +24,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal, modals }}>
+    <ModalContext.Provider value={{ closeModal, modals, openModal }}>
       {children}
     </ModalContext.Provider>
   );

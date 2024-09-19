@@ -1,8 +1,12 @@
-import {StrictMode} from 'react'
-import { RouterProvider, createRouter } from '@tanstack/react-router'
-import {routeTree} from "./routeTree.gen.ts";
-import {ModalProvider} from "@/app/providers/modal-provider";
-import {createRoot} from "react-dom/client";
+import {ModalProvider} from '@/app/providers/modal-provider';
+import {
+    createRouter,
+    RouterProvider,
+} from '@tanstack/react-router';
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client';
+
+import {routeTree} from './routeTree.gen.ts';
 
 // Create a new router instance
 const router = createRouter({ routeTree })
