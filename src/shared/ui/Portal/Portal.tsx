@@ -1,14 +1,14 @@
-import { createPortal } from 'react-dom';
+import { createPortal } from "react-dom";
 
 interface PortalProps {
-    children: React.ReactNode;
-    element?: HTMLElement;
+  children: React.ReactNode;
+  element?: HTMLElement;
 }
 
 export const Portal = (props: PortalProps) => {
-    const { children, element = document.body } = props;
+  const { children, element = document.body } = props;
 
-    return createPortal(children, element);
+  return createPortal(children, element);
 };
 
-Portal.displayName = 'Portal';
+Portal.displayName = "Portal";

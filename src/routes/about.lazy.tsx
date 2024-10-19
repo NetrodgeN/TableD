@@ -3,10 +3,6 @@ import { createLazyFileRoute } from "@tanstack/react-router";
 
 import { SomeComponent } from "../SomeComponents.tsx";
 
-export const Route = createLazyFileRoute("/about")({
-  component: About,
-});
-
 function About() {
   return (
     <div className="p-2">
@@ -16,3 +12,7 @@ function About() {
     </div>
   );
 }
+
+export const Route = createLazyFileRoute("/about")({
+  component: About,
+});

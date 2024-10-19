@@ -1,32 +1,36 @@
+import { ReactNode, useCallback, useContext, useMemo, useState } from "react";
+
 import {
   ModalContext,
   ModalItem,
 } from "@/shared/lib/context/modal-context.tsx";
-import {
-  ReactNode,
-  useContext,
-  useState
-} from "react";
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [modals, setModals] = useState<ModalItem[]>([]);
 
-  const openModal = (content: ReactNode) => {
+  const openModal = useCallback((content: ReactNode) => {
     setModals((prevModals) => [...prevModals, { content, id: Date.now() }]);
-  };
+  }, []);
 
-  const closeModal = (closeAll: boolean = false) => {
+  const closeModal = useCallback((closeAll: boolean = false) => {
     if (closeAll) {
       setModals([]);
     } else {
       setModals((prevModals) => prevModals.slice(0, -1));
     }
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({
+      closeModal,
+      modals,
+      openModal,
+    }),
+    [closeModal, modals, openModal],
+  );
 
   return (
-    <ModalContext.Provider value={{ closeModal, modals, openModal }}>
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 };
 

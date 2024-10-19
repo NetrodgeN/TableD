@@ -1,1 +1,1 @@
-export { ModalProvider, useModal } from './modal-provider.tsx';
+export { ModalProvider, useModal } from "./modal-provider.tsx";
