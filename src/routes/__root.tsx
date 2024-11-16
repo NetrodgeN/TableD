@@ -1,48 +1,16 @@
-import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
+import { Header } from "@/shared/ui/Header";
+import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-
+// TODO: корректным наверно будет сделать компонент Header, разбить в нём меню и прочее, чтобы было органично
+// Не забыть написать что-то вроде ui-kit как в figme
+// выписать все цвета, шрифты, размеры, отступы и прочее
 function RootComponent() {
   return (
-    <>
-      <div className="p-2 flex gap-2 text-lg">
-        <Link
-          activeOptions={{ exact: true }}
-          activeProps={{
-            className: "font-bold",
-          }}
-          to="/"
-        >
-          Home
-        </Link>{" "}
-        <Link
-          activeProps={{
-            className: "font-bold",
-          }}
-          to="/about"
-        >
-          About
-        </Link>
-        <Link
-          activeProps={{
-            className: "font-bold",
-          }}
-          to="/about-me"
-        >
-          About-me
-        </Link>
-        <Link
-          activeProps={{
-            className: "font-bold",
-          }}
-          to="/todo"
-        >
-          Todo
-        </Link>
-      </div>
-      <hr />
+    <div style={{ display: "flex" }}>
+      <Header />
       <Outlet />
       <TanStackRouterDevtools position="bottom-right" />
-    </>
+    </div>
   );
 }
 

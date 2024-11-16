@@ -10,6 +10,7 @@ import styles from "./Modal.module.scss";
 
 const modalElement = document.getElementById("modal") as HTMLElement;
 
+// TODO: Нужно придумать стили для Модалки. Предварительно начать изучать БЭМ
 export const Modal = () => {
   const { closeModal, modals } = useModal();
   const modalRef = useRef<HTMLDivElement>(null);
@@ -73,24 +74,24 @@ export const Modal = () => {
   };
 
   if (modals.length === 0) return null;
-
+  const isCloseAll = false;
   const currentModal = modals[modals.length - 1];
   return (
     <Portal element={modalElement}>
       <div className={cn(styles["modal-overlay"])} onClick={handleOverlayClick}>
         <div className={cn(styles.modal)} ref={modalRef} tabIndex={-1}>
           <div className={cn(styles.modal__header)}>
-            {/* eslint-disable-next-line react/button-has-type */}
-            <button
-              className={cn(
-                styles.modal__button,
-                styles["modal__button--close-all"],
-              )}
-              onClick={() => closeModal(true)}
-            >
-              Закрыть все
-            </button>
-            {/* eslint-disable-next-line react/button-has-type */}
+            {isCloseAll ? (
+              <button
+                className={cn(
+                  styles.modal__button,
+                  styles["modal__button--close-all"],
+                )}
+                onClick={() => closeModal(true)}
+              >
+                Закрыть все
+              </button>
+            ) : null}
             <button
               className={cn(
                 styles.modal__button,
