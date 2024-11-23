@@ -8,7 +8,7 @@ import cn from "classnames";
 import { mapDirectionClass } from "../styles/consts.ts";
 import { DropdownDirection } from "../ui.ts";
 
-import cls from "./Dropdown.module.scss";
+import cls from "./dropdown.module.scss";
 import popupCls from "../styles/popup.module.scss";
 
 export interface DropdownItem {
