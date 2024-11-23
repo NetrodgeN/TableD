@@ -4,7 +4,7 @@ import { useModal } from "@/app/providers/modal-provider";
 
 import cn from "classnames";
 
-import { Portal } from "../Portal";
+import { Portal } from "../portal";
 
 import styles from "./Modal.module.scss";
 

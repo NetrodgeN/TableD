@@ -1,4 +1,4 @@
-import React, { FocusEventHandler, KeyboardEventHandler } from "react";
+import { FocusEventHandler, FormEvent, KeyboardEventHandler } from "react";
 
 import classNames from "classnames/bind";
 
@@ -27,7 +27,7 @@ export const TextInput = ({
   onFocus,
   onKeyDown,
 }: TextInputProps) => {
-  const handleChange = (e: React.FormEvent) => {
+  const handleChange = (e: FormEvent) => {
     if (onChange) {
       onChange((e.target as HTMLInputElement).value);
     }

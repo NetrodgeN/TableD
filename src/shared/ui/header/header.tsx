@@ -4,7 +4,7 @@ import styles from "./header.module.scss";
 
 export const Header = () => {
   return (
-    <header className={styles.header__container}>
+    <header className={styles.header}>
       <Link
         activeOptions={{ exact: true }}
         activeProps={{
@@ -13,7 +13,7 @@ export const Header = () => {
         to="/"
       >
         Home
-      </Link>{" "}
+      </Link>
       <Link
         activeProps={{
           className: "font-bold",
@@ -21,22 +21,6 @@ export const Header = () => {
         to="/about"
       >
         About
-      </Link>
-      <Link
-        activeProps={{
-          className: "font-bold",
-        }}
-        to="/about-me"
-      >
-        About-me
-      </Link>
-      <Link
-        activeProps={{
-          className: "font-bold",
-        }}
-        to="/todo"
-      >
-        Todo
       </Link>
     </header>
   );

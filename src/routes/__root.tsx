@@ -1,4 +1,4 @@
-import { Header } from "@/shared/ui/Header";
+import { Header } from "@/shared/ui/header";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 // TODO: корректным наверно будет сделать компонент Header, разбить в нём меню и прочее, чтобы было органично

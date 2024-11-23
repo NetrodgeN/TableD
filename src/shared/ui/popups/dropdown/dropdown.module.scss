@@ -1,0 +1,27 @@
+.popup {
+  position: relative;
+}
+
+.menu {
+  background: #deb5a6;
+  position: absolute;
+  z-index: 10000;
+  border-radius: 8px;
+  border: 1px solid #af8c7e;
+  flex-direction: column;
+  display: flex;
+}
+
+.item {
+  padding: 10px 25px;
+  width: 100%;
+  border: none;
+  background: none;
+  outline: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.item:hover {
+  background: #de7f66;
+  border-radius: 8px;
+}

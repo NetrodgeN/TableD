@@ -1,13 +1,13 @@
 import { AboutPage } from "@/pages";
-import { Modal } from "@/shared/ui/Modal";
+import { Modal } from "@/shared/ui/modal";
 import { createLazyFileRoute } from "@tanstack/react-router";
 
 function About() {
   return (
-    <div className="p-2">
+    <>
       <AboutPage />
       <Modal />
-    </div>
+    </>
   );
 }
 

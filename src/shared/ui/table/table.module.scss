@@ -1,20 +1,21 @@
 table {
   border-collapse: separate;
   border-spacing: 0 5px;
+  width: 100%;
 }
 
 thead th {
-  background: #130909;
-  color: #FFFFFF;
+  text-align: left;
+  color: #9d9b9b;
 }
 
-tr:nth-child(odd) {
-  background-color: #f5f0f0;
+tr:nth-child(even) {
+  background-color: #f8f8f8;
 }
 td {
   background-color: inherit;
   padding: 10px;
-  border: 1px solid #9a9494;
+  border: 1px solid #f2f2f2;
 }
 
 tr td:first-child {

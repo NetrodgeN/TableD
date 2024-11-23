@@ -13,9 +13,6 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AboutMeImport } from './routes/about-me'
-import { Route as TodoIndexImport } from './routes/todo/index'
-import { Route as TodoTodoidImport } from './routes/todo/$todoid'
 
 // Create Virtual Routes
 
@@ -29,25 +26,10 @@ const AboutLazyRoute = AboutLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
-const AboutMeRoute = AboutMeImport.update({
-  path: '/about-me',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
-
-const TodoIndexRoute = TodoIndexImport.update({
-  path: '/todo/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const TodoTodoidRoute = TodoTodoidImport.update({
-  path: '/todo/$todoid',
-  getParentRoute: () => rootRoute,
-} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -60,32 +42,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
-    '/about-me': {
-      id: '/about-me'
-      path: '/about-me'
-      fullPath: '/about-me'
-      preLoaderRoute: typeof AboutMeImport
-      parentRoute: typeof rootRoute
-    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/todo/$todoid': {
-      id: '/todo/$todoid'
-      path: '/todo/$todoid'
-      fullPath: '/todo/$todoid'
-      preLoaderRoute: typeof TodoTodoidImport
-      parentRoute: typeof rootRoute
-    }
-    '/todo/': {
-      id: '/todo/'
-      path: '/todo'
-      fullPath: '/todo'
-      preLoaderRoute: typeof TodoIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -95,10 +56,7 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexLazyRoute,
-  AboutMeRoute,
   AboutLazyRoute,
-  TodoTodoidRoute,
-  TodoIndexRoute,
 })
 
 /* prettier-ignore-end */
@@ -110,26 +68,14 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/about-me",
-        "/about",
-        "/todo/$todoid",
-        "/todo/"
+        "/about"
       ]
     },
     "/": {
       "filePath": "index.lazy.tsx"
     },
-    "/about-me": {
-      "filePath": "about-me.tsx"
-    },
     "/about": {
       "filePath": "about.lazy.tsx"
-    },
-    "/todo/$todoid": {
-      "filePath": "todo/$todoid.tsx"
-    },
-    "/todo/": {
-      "filePath": "todo/index.tsx"
     }
   }
 }
